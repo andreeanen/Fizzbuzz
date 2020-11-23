@@ -19,7 +19,7 @@ namespace Fizzbuzz
                 }
                 else
                 {
-                    program.WriteInstruction("Your input is correct");
+                    program.PrintResult(inputIntegerFromUser);
                 }
 
             }
@@ -29,6 +29,34 @@ namespace Fizzbuzz
             }
 
             Console.ReadKey();
+        }
+
+        public void PrintResult(int inputInteger)
+        {
+            var program = new Program();
+            for (int i = 1; i <= inputInteger; i++)
+            {
+                if (i == 42)
+                {
+                    program.WriteInstruction("Answer to the Ultimate Question of Life, the Universe, and Everything");
+                }
+                else if (i % 3 == 0 && i % 5 == 0)
+                {
+                    program.WriteInstruction("Fizzbuzz");
+                }
+                else if (i % 3 == 0)
+                {
+                    program.WriteInstruction("Fizz");
+                }
+                else if (i % 5 == 0)
+                {
+                    program.WriteInstruction("Buzz");
+                }
+                else
+                {
+                    program.WriteInstruction($"{i}");
+                }
+            }
         }
 
         public void WriteInstruction(string instruction)
