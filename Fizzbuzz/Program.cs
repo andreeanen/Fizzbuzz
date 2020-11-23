@@ -19,9 +19,8 @@ namespace Fizzbuzz
                 }
                 else
                 {
-                    program.WriteInstruction("Your input is correct");
+                    program.PrintResult(inputIntegerFromUser);
                 }
-
             }
             else
             {
