@@ -30,32 +30,66 @@ namespace Fizzbuzz
             Console.ReadKey();
         }
 
-        public void PrintResult(int inputInteger)
+        //public void PrintResult(int inputInteger)
+        //{
+        //    var program = new Program();
+        //    for (int i = 1; i <= inputInteger; i++)
+        //    {
+        //        if (i == 42)
+        //        {
+        //            program.WriteInstruction("Answer to the Ultimate Question of Life, the Universe, and Everything");
+        //        }
+        //        else if (i % 3 == 0 && i % 5 == 0)
+        //        {
+        //            program.WriteInstruction("Fizzbuzz");
+        //        }
+        //        else if (i % 3 == 0)
+        //        {
+        //            program.WriteInstruction("Fizz");
+        //        }
+        //        else if (i % 5 == 0)
+        //        {
+        //            program.WriteInstruction("Buzz");
+        //        }
+        //        else
+        //        {
+        //            program.WriteInstruction($"{i}");
+        //        }
+        //    }
+        //}
+
+        public bool PrintResult(int input)
         {
             var program = new Program();
-            for (int i = 1; i <= inputInteger; i++)
+            int counter = 0;
+            for (int i = 1; i <= input; i++)
             {
-                if (i == 42)
-                {
-                    program.WriteInstruction("Answer to the Ultimate Question of Life, the Universe, and Everything");
-                }
-                else if (i % 3 == 0 && i % 5 == 0)
-                {
-                    program.WriteInstruction("Fizzbuzz");
-                }
-                else if (i % 3 == 0)
-                {
-                    program.WriteInstruction("Fizz");
-                }
-                else if (i % 5 == 0)
-                {
-                    program.WriteInstruction("Buzz");
-                }
-                else
-                {
-                    program.WriteInstruction($"{i}");
-                }
+                counter++;
+                string result = CheckValue(i);
+                program.WriteInstruction(result);
             }
+            return counter == input;
+        }
+
+        public string CheckValue(int i)
+        {
+            if (i == 42)
+            {
+                return "Answer to the Ultimate Question of Life, the Universe, and Everything";
+            }
+            if (i % 3 == 0 && i % 5 == 0)
+            {
+                return "Fizzbuzz";
+            }
+            if (i % 3 == 0)
+            {
+                return "Fizz";
+            }
+            if (i % 5 == 0)
+            {
+                return "Buzz";
+            }
+            return $"{i}";
         }
 
         public void WriteInstruction(string instruction)
@@ -81,6 +115,7 @@ namespace Fizzbuzz
                 return 0;
             }
         }
+
         public bool ValidateRangeInput(int inputInteger, int min = 1, int max = 300)
         {
             return (inputInteger > min && inputInteger < max);
