@@ -1,6 +1,5 @@
 ﻿using Fizzbuzz;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Fizzbuzz;
 using System;
 using System.IO;
 
@@ -62,7 +61,7 @@ namespace FizzbuzzTests
         }
 
         [TestMethod]
-        public void CheckValue3Test()
+        public void CheckValueFizzTest()
         {
             var program = new Program();
 
@@ -73,7 +72,7 @@ namespace FizzbuzzTests
         }
 
         [TestMethod]
-        public void CheckValue5Test()
+        public void CheckValueBuzzTest()
         {
             var program = new Program();
 
@@ -84,12 +83,22 @@ namespace FizzbuzzTests
         }
 
         [TestMethod]
-        public void CheckValue15Test()
+        public void CheckValueFizzbuzzTest()
         {
             var program = new Program();
 
             var expected = "Fizzbuzz";
             var actual = program.CheckValue(15);
+
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void CheckValueAny()
+        {
+            var program = new Program();
+
+            var expected = "22";
+            var actual = program.CheckValue(22);
 
             Assert.AreEqual(expected, actual);
         }
@@ -115,13 +124,9 @@ namespace FizzbuzzTests
             var expected = program.ValidateRangeInput(100);
             //Assert
             Assert.IsTrue(expected);
-            var program = new Program();
-
-            var expected = "22";
-            var actual = program.CheckValue(22);
-
-            Assert.AreEqual(expected, actual);
         }
+
+
     }
 
 
