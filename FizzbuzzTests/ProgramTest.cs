@@ -9,7 +9,7 @@ namespace FizzbuzzTests
     public class ProgramTest
     {
         [TestMethod]
-        public void WriteInstructionTest()
+        public void ConsoleLogTest()
         {
             var program = new Program();
 
@@ -17,7 +17,7 @@ namespace FizzbuzzTests
             {
                 Console.SetOut(sw);
 
-                program.WriteInstruction("Instruction text.");
+                program.ConsoleLog("Instruction text.");
 
                 var expected = string.Format($"Instruction text.{Environment.NewLine}");
                 Assert.AreEqual(expected, sw.ToString());

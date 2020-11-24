@@ -7,25 +7,31 @@ namespace Fizzbuzz
         static void Main(string[] args)
         {
             Program program = new Program();
-            program.WriteInstruction("Enter a number between 1 and 300.");
-            var inputFromUser = program.ReadInput();
-            int inputIntegerFromUser = program.ValidateIntegerInput(inputFromUser);
-            if (inputIntegerFromUser != 0)
-            {
-                var isInputRangeValid = program.ValidateRangeInput(inputIntegerFromUser);
-                if (!isInputRangeValid)
+            int inputIntegerFromUser;
+            var isInputRangeValid = false;
+
+            program.ConsoleLog("Enter a number between 1 and 300:");
+            do
+            {                
+                var inputFromUser = program.ReadInput();
+                inputIntegerFromUser = program.ValidateIntegerInput(inputFromUser);
+                if (inputIntegerFromUser == 0)
                 {
-                    program.WriteInstruction("Your input was not a number betweeen 1 and 300. Good bye..");
+                    program.ConsoleLog("Invalid input. Enter an integer:");
                 }
                 else
                 {
-                    program.PrintResult(inputIntegerFromUser);
+                    isInputRangeValid = program.ValidateRangeInput(inputIntegerFromUser);
+                    if (!isInputRangeValid)
+                    {
+                        program.ConsoleLog("Invalid input. Enter an integer between 1 and 300:");                        
+                    }
+                    else
+                    {
+                        program.PrintResult(inputIntegerFromUser);
+                    }
                 }
-            }
-            else
-            {
-                program.WriteInstruction("Your input was not a number betweeen 1 and 300. Good bye..");
-            }
+            } while (inputIntegerFromUser == 0 || !isInputRangeValid);
 
             Console.ReadKey();
         }
@@ -38,7 +44,7 @@ namespace Fizzbuzz
             {
                 counter++;
                 string result = CheckValue(i);
-                program.WriteInstruction(result);
+                program.ConsoleLog(result);
             }
             return counter == input;
         }
@@ -64,7 +70,7 @@ namespace Fizzbuzz
             return $"{i}";
         }
 
-        public void WriteInstruction(string instruction)
+        public void ConsoleLog(string instruction)
         {
             Console.WriteLine(instruction);
         }
@@ -83,7 +89,6 @@ namespace Fizzbuzz
             }
             catch (Exception)
             {
-                WriteInstruction("Your input was not a number... Good bye..");
                 return 0;
             }
         }
