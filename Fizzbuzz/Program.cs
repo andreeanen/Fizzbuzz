@@ -28,7 +28,7 @@ namespace Fizzbuzz
                     }
                     else
                     {
-                        program.PrintResult(inputIntegerFromUser);
+                        program.RunFizzbuzzCheck(inputIntegerFromUser);
                     }
                 }
             } while (inputIntegerFromUser == 0 || !isInputRangeValid);
@@ -36,7 +36,7 @@ namespace Fizzbuzz
             Console.ReadKey();
         }
 
-        public bool PrintResult(int input)
+        public bool RunFizzbuzzCheck(int input)
         {
             var program = new Program();
             int counter = 0;

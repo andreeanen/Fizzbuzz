@@ -42,11 +42,11 @@ namespace FizzbuzzTests
         }
 
         [TestMethod]
-        public void PrintResultTest()
+        public void RunFizzbuzzCheckTest()
         {
             var program = new Program();
 
-            Assert.IsTrue(program.PrintResult(402));
+            Assert.IsTrue(program.RunFizzbuzzCheck(402));
         }
 
         [TestMethod]
