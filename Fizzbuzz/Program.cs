@@ -83,19 +83,27 @@ namespace Fizzbuzz
 
         public int ValidateIntegerInput(string input)
         {
-            try
+            int result = 0;
+            if(int.TryParse(input, out result))
             {
-                return int.Parse(input);
+                return result;
             }
-            catch (Exception)
-            {
-                return 0;
-            }
+            return result;
+           
+            //try
+            //{
+            //    return int.Parse(input);
+            //}
+            //catch (Exception)
+            //{
+            //    return 0;
+            //}
         }
 
         public bool ValidateRangeInput(int inputInteger, int min = 1, int max = 300)
         {
-            return (inputInteger > min && inputInteger < max);
+            bool isInputInRange = (inputInteger > min) && (inputInteger < max);
+            return isInputInRange;
         }
     }
 }
