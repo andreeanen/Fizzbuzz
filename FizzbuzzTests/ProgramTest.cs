@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Fizzbuzz;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Fizzbuzz;
 using System;
 using System.IO;
@@ -94,8 +95,26 @@ namespace FizzbuzzTests
         }
 
         [TestMethod]
-        public void CheckValue20Test()
+        public void ValidateIntegerInputTest()
         {
+            //Arrange
+            var program = new Program();
+            //Act
+            var expected = program.ValidateIntegerInput("12");
+            int integerNumber = 12;
+            //Assert
+            Assert.AreEqual(integerNumber, expected);
+        }
+
+        [TestMethod]
+        public void ValidateRangeInputTest()
+        {
+            //Arrange
+            var program = new Program();
+            //Act
+            var expected = program.ValidateRangeInput(100);
+            //Assert
+            Assert.IsTrue(expected);
             var program = new Program();
 
             var expected = "22";
@@ -104,4 +123,6 @@ namespace FizzbuzzTests
             Assert.AreEqual(expected, actual);
         }
     }
+
+
 }
