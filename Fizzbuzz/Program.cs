@@ -80,7 +80,6 @@ namespace Fizzbuzz
             return Console.ReadLine();
         }
 
-
         public int ValidateIntegerInput(string input)
         {
             int result = 0;
@@ -89,15 +88,6 @@ namespace Fizzbuzz
                 return result;
             }
             return result;
-           
-            //try
-            //{
-            //    return int.Parse(input);
-            //}
-            //catch (Exception)
-            //{
-            //    return 0;
-            //}
         }
 
         public bool ValidateRangeInput(int inputInteger, int min = 1, int max = 300)

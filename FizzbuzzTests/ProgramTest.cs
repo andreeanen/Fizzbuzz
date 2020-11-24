@@ -115,9 +115,19 @@ namespace FizzbuzzTests
         }
 
         [TestMethod]
+        public void ValidateInteger0InputTest()
+        {
+            var program = new Program();
+
+            var expected = program.ValidateIntegerInput("hej");
+            int integerNumber = 0;
+
+            Assert.AreEqual(integerNumber, expected);
+        }
+
+        [TestMethod]
         public void ValidateRangeInputTest()
         {
-
             var program = new Program();
 
             var expected = program.ValidateRangeInput(100);
