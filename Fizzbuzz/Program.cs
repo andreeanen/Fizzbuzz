@@ -92,9 +92,9 @@ namespace Fizzbuzz
 
         public bool ValidateRangeInput(int inputInteger, int min = 1, int max = 300)
         {
-            bool largerOrEqualsMin = inputInteger >= min;
-            bool lowerOrEqualMax = inputInteger <= max;
-            if (largerOrEqualsMin && lowerOrEqualMax)
+            bool largerOrEqualThenMin = inputInteger >= min;
+            bool lowerOrEqualThenMax = inputInteger <= max;
+            if (largerOrEqualThenMin && lowerOrEqualThenMax)
             {
                 return true;
             }

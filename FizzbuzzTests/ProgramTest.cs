@@ -126,7 +126,7 @@ namespace FizzbuzzTests
         }
 
         [TestMethod]
-        public void ValidateRangeInputTest()
+        public void ValidateRangeInputTrueTest()
         {
             var program = new Program();
 
@@ -134,7 +134,7 @@ namespace FizzbuzzTests
 
             Assert.IsTrue(expected);
         }
-
+     
         [TestMethod]
         public void ValidateRangeInputFalseTest()
         {
