@@ -126,14 +126,23 @@ namespace FizzbuzzTests
         }
 
         [TestMethod]
-        public void ValidateRangeInputTest()
+        public void ValidateRangeInputTrueTest()
         {
-
             var program = new Program();
 
             var expected = program.ValidateRangeInput(100);
 
             Assert.IsTrue(expected);
+        }
+
+        [TestMethod]
+        public void ValidateRangeInputFalseTest()
+        {
+            var program = new Program();
+
+            var result = program.ValidateRangeInput(900);
+
+            Assert.IsFalse(result);
         }
     }
 }
