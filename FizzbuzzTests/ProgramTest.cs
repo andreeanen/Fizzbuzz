@@ -57,6 +57,38 @@ namespace FizzbuzzTests
             }
         }
 
+
+        [TestMethod]
+        public void InteractWithUserNoIntegerTest()
+        {
+            var program = new Program();
+            using (StringWriter sw = new StringWriter())
+            {
+                Console.SetOut(sw);
+
+                program.CheckInputFromUser("asf");
+
+                var expected = string.Format($"Invalid input.Press any key to exit..{Environment.NewLine}");
+                Assert.AreEqual(expected, sw.ToString());
+            }
+        }
+
+        [TestMethod]
+        public void InteractWithUserIntegerTest()
+        {
+            var program = new Program();
+            using (StringWriter sw = new StringWriter())
+            {
+                Console.SetOut(sw);
+
+                program.CheckInputFromUser("3");
+
+                var expected = string.Format($"1{Environment.NewLine}2{Environment.NewLine}Fizz{Environment.NewLine}");
+                Assert.AreEqual(expected, sw.ToString());
+            }
+        }
+
+
         [TestMethod]
         public void RunFizzbuzzCheckTest()
         {
@@ -160,5 +192,15 @@ namespace FizzbuzzTests
 
             Assert.IsFalse(result);
         }
+
+        //[TestMethod]
+        //public void InteractWithUserZeroTest()
+        //{
+        //    var program = new Program();
+
+        //    var actual = program.InteractWithUser(0);
+           
+        //    Assert.IsFalse(actual);
+        //}
     }
 }

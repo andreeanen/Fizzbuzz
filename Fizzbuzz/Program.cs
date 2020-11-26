@@ -7,28 +7,25 @@ namespace Fizzbuzz
         static void Main(string[] args)
         {
             Program program = new Program();
-            int inputIntegerFromUser = 0;
-            program.InteractWithUser(inputIntegerFromUser);
+            program.ConsoleLog("Enter a number between 1 and 300:");
+            var inputFromUser = program.ReadInput();
+            program.CheckInputFromUser(inputFromUser);
             Console.ReadKey();
         }
 
-        public void InteractWithUser(int input)
+        public void CheckInputFromUser(string inputFromUser)
         {
             Program program = new Program();
-            program.ConsoleLog("Enter a number between 1 and 300:");
-            do
+         
+            var input = program.ValidateIntegerInput(inputFromUser);
+            if (program.IsZero(input) || !program.ValidateRangeInput(input))
             {
-                var inputFromUser = program.ReadInput();
-                input = program.ValidateIntegerInput(inputFromUser);
-                if (program.IsZero(input) || !program.ValidateRangeInput(input))
-                {
-                    program.ConsoleLog("Invalid input. Enter an integer between 1 and 300:");
-                }
-                else
-                {
-                    program.RunFizzbuzzCheck(input);
-                }
-            } while (program.IsZero(input) || !program.ValidateRangeInput(input));
+                program.ConsoleLog("Invalid input.Press any key to exit..");
+            }
+            else
+            {
+                program.RunFizzbuzzCheck(input);
+            }
         }
 
         public bool IsZero(int number)
