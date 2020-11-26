@@ -7,33 +7,33 @@ namespace Fizzbuzz
         static void Main(string[] args)
         {
             Program program = new Program();
-            int inputIntegerFromUser;
-            var isInputRangeValid = false;
+            int inputIntegerFromUser = 0;
+            program.InteractWithUser(inputIntegerFromUser);
+            Console.ReadKey();
+        }
 
+        public void InteractWithUser(int input)
+        {
+            Program program = new Program();
             program.ConsoleLog("Enter a number between 1 and 300:");
             do
-            {                
+            {
                 var inputFromUser = program.ReadInput();
-                inputIntegerFromUser = program.ValidateIntegerInput(inputFromUser);
-                if (inputIntegerFromUser == 0)
+                input = program.ValidateIntegerInput(inputFromUser);
+                if (program.IsZero(input) || !program.ValidateRangeInput(input))
                 {
-                    program.ConsoleLog("Invalid input. Enter an integer:");
+                    program.ConsoleLog("Invalid input. Enter an integer between 1 and 300:");
                 }
                 else
                 {
-                    isInputRangeValid = program.ValidateRangeInput(inputIntegerFromUser);
-                    if (!isInputRangeValid)
-                    {
-                        program.ConsoleLog("Invalid input. Enter an integer between 1 and 300:");                        
-                    }
-                    else
-                    {
-                        program.RunFizzbuzzCheck(inputIntegerFromUser);
-                    }
+                    program.RunFizzbuzzCheck(input);
                 }
-            } while (inputIntegerFromUser == 0 || !isInputRangeValid);
+            } while (program.IsZero(input) || !program.ValidateRangeInput(input));
+        }
 
-            Console.ReadKey();
+        public bool IsZero(int number)
+        {
+            return number == 0;
         }
 
         public bool RunFizzbuzzCheck(int input)

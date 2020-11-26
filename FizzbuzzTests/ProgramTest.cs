@@ -25,6 +25,22 @@ namespace FizzbuzzTests
         }
 
         [TestMethod]
+        public void IsZeroTrueTest()
+        {
+            var program = new Program();
+            var actual = program.IsZero(0);
+            Assert.IsTrue(actual);
+        }
+
+        [TestMethod]
+        public void IsZeroFalseTest()
+        {
+            var program = new Program();
+            var actual = program.IsZero(10);
+            Assert.IsFalse(actual);
+        }
+
+        [TestMethod]
         public void ReadInputTest()
         {
             var program = new Program();
