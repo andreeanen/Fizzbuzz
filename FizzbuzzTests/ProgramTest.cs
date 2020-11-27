@@ -68,7 +68,7 @@ namespace FizzbuzzTests
 
                 program.CheckOutput("asf");
 
-                var expected = string.Format($"Invalid input.Press any key to exit..{Environment.NewLine}");
+                var expected = string.Format($"Invalid input.{Environment.NewLine}");
                 Assert.AreEqual(expected, sw.ToString());
             }
         }
@@ -88,7 +88,7 @@ namespace FizzbuzzTests
             }
         }
 
-
+       
         [TestMethod]
         public void RunFizzbuzzCheckTest()
         {

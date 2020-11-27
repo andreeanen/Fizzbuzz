@@ -10,17 +10,17 @@ namespace Fizzbuzz
             program.ConsoleLog("Enter a number between 1 and 300:");
             var inputFromUser = program.ReadInput();
             program.CheckOutput(inputFromUser);
-            Console.ReadKey();
         }
 
+        
         public void CheckOutput(string inputFromUser)
         {
             Program program = new Program();
-         
+           
             var input = program.ValidateIntegerInput(inputFromUser);
             if (program.IsZero(input) || !program.ValidateRangeInput(input))
             {
-                program.ConsoleLog("Invalid input.Press any key to exit..");
+                program.ConsoleLog("Invalid input.");
             }
             else
             {
