@@ -9,11 +9,11 @@ namespace Fizzbuzz
             Program program = new Program();
             program.ConsoleLog("Enter a number between 1 and 300:");
             var inputFromUser = program.ReadInput();
-            program.CheckInputFromUser(inputFromUser);
+            program.CheckOutput(inputFromUser);
             Console.ReadKey();
         }
 
-        public void CheckInputFromUser(string inputFromUser)
+        public void CheckOutput(string inputFromUser)
         {
             Program program = new Program();
          

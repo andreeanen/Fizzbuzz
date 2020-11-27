@@ -59,14 +59,14 @@ namespace FizzbuzzTests
 
 
         [TestMethod]
-        public void InteractWithUserNoIntegerTest()
+        public void CheckOutputNoIntegerTest()
         {
             var program = new Program();
             using (StringWriter sw = new StringWriter())
             {
                 Console.SetOut(sw);
 
-                program.CheckInputFromUser("asf");
+                program.CheckOutput("asf");
 
                 var expected = string.Format($"Invalid input.Press any key to exit..{Environment.NewLine}");
                 Assert.AreEqual(expected, sw.ToString());
@@ -74,14 +74,14 @@ namespace FizzbuzzTests
         }
 
         [TestMethod]
-        public void InteractWithUserIntegerTest()
+        public void CheckOutputIntegerTest()
         {
             var program = new Program();
             using (StringWriter sw = new StringWriter())
             {
                 Console.SetOut(sw);
 
-                program.CheckInputFromUser("3");
+                program.CheckOutput("3");
 
                 var expected = string.Format($"1{Environment.NewLine}2{Environment.NewLine}Fizz{Environment.NewLine}");
                 Assert.AreEqual(expected, sw.ToString());
@@ -193,14 +193,5 @@ namespace FizzbuzzTests
             Assert.IsFalse(result);
         }
 
-        //[TestMethod]
-        //public void InteractWithUserZeroTest()
-        //{
-        //    var program = new Program();
-
-        //    var actual = program.InteractWithUser(0);
-           
-        //    Assert.IsFalse(actual);
-        //}
     }
 }
